@@ -1,0 +1,13 @@
+{
+  "name": "while-you-wait",
+  "owner": {
+    "name": "Nour"
+  },
+  "description": "Use the time you wait on Claude Code for dhikr",
+  "plugins": [
+    {
+      "name": "while-you-wait",
+      "source": "./"
+    }
+  ]
+}

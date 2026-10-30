@@ -1,0 +1,10 @@
+{
+  "name": "while-you-wait",
+  "displayName": "While You Wait",
+  "version": "0.1.0",
+  "description": "Shows a rotating zikr above the prompt while Claude is working",
+  "author": { "name": "Nour" },
+  "repository": "https://github.com/nouraraar91/while-you-wait",
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}
