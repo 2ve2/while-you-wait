@@ -4,10 +4,7 @@ Turn the time you spend waiting on Claude Code into dhikr.
 
 While Claude is working, a zikr appears above the prompt, in Arabic with its English meaning, and a new one shows every 10 seconds so you can repeat each one as it passes. When Claude finishes, it disappears. The next time you wait, it continues from where you left off, even in a new session.
 
-```
-📿 سُبْحَانَ اللهِ وَبِحَمْدِهِ
-Glory be to Allah and praise be to Him
-```
+![While You Wait showing a new zikr above the Claude Code prompt every 10 seconds while Claude works](while-you-wait.gif)
 
 It changes nothing in your settings or your status line, and it works in the terminal, the desktop app, and VS Code.
 
