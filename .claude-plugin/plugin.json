@@ -1,10 +1,24 @@
 {
   "name": "while-you-wait",
   "displayName": "While You Wait",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shows a rotating zikr above the prompt while Claude is working",
-  "author": { "name": "Nour" },
+  "author": {
+    "name": "Nour"
+  },
   "repository": "https://github.com/nouraraar91/while-you-wait",
   "license": "MIT",
+  "userConfig": {
+    "terminal_harakat": {
+      "type": "string",
+      "title": "Harakat in the terminal",
+      "description": "hide: show the adhkar without harakat in the terminal, where they are drawn taller than a row and spill into the line above. show: keep them. The desktop app and VS Code always show them.",
+      "options": [
+        "hide",
+        "show"
+      ],
+      "default": "hide"
+    }
+  },
   "types": "./types/index.d.ts"
 }
