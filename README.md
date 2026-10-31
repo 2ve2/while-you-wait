@@ -29,6 +29,10 @@ claude plugin install while-you-wait --marketplace nouraraar91/while-you-wait
 
 In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `nouraraar91/while-you-wait`, then Add plugin.
 
+## Show azkar all the time
+
+By default the band shows only while Claude is working. To keep it above the prompt all the time, changing every 10 seconds, run `/config` and set **Show azkar** to `always`. Collapse it any time with the `[-]` at its right edge.
+
 ## Change the adhkar
 
 The list is in `hooks/azkar.ts`, one `{ ar, en, tr }` entry per zikr (Arabic, meaning, and Latin letters). Add, remove, or reorder entries, or translate the `en` lines into your own language. To change how long each zikr stays, edit `SECONDS_PER_ZIKR` in `hooks/register.tsx`.

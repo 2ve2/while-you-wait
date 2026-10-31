@@ -1,7 +1,7 @@
 {
   "name": "while-you-wait",
   "displayName": "While You Wait",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Shows a rotating zikr above the prompt while Claude is working",
   "author": {
     "name": "Nour"
@@ -9,6 +9,16 @@
   "repository": "https://github.com/nouraraar91/while-you-wait",
   "license": "MIT",
   "userConfig": {
+    "show_azkar": {
+      "type": "string",
+      "title": "Show azkar",
+      "description": "while-working: only while Claude is working. always: above the prompt all the time, changing every 10 seconds.",
+      "options": [
+        "while-working",
+        "always"
+      ],
+      "default": "while-working"
+    },
     "terminal_harakat": {
       "type": "string",
       "title": "Harakat in the terminal",

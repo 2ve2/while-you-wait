@@ -108,3 +108,26 @@ test('harakat stay in the terminal when the setting asks for them', { options: {
   expect(await zikrText(ui)).toContain(AZKAR[0]!.ar)
   await ui.unmount()
 })
+
+test('with Show azkar set to always, the zikr shows while Claude is idle too', { options: { show_azkar: 'always' } }, async ($, on) => {
+  mock.env(on, { TERM_PROGRAM: 'Apple_Terminal' })
+
+  const ui = await $.ui.mount({ ...band(false), surface: 'terminal' })
+  expect(await zikrText(ui)).toContain(stripHarakat(AZKAR[0]!.ar))
+  await ui.unmount()
+})
+
+test('with Show azkar set to always, the zikr changes while Claude is idle', { options: { show_azkar: 'always' } }, async ($, on) => {
+  mock.env(on, { TERM_PROGRAM: 'Apple_Terminal' })
+  const clock = mock.clock(on)
+  mock.store(on)
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+  on('command.register', () => ({ value: { command: 'azkar-arabic' } }))
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+
+  await clock.advance(10_000)
+
+  const ui = await $.ui.mount({ ...band(false), surface: 'terminal' })
+  expect(await zikrText(ui)).toContain(stripHarakat(AZKAR[1]!.ar))
+  await ui.unmount()
+})

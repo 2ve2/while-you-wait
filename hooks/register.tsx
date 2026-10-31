@@ -46,6 +46,7 @@ async function choose($: EngineInterface, display: Display) {
 
 export const register: Register = (on, options) => {
   let timer: Timer | undefined
+  const always = options.show_azkar === 'always'
 
   on('session.start', async ($, e, next) => {
     const saved = Number((await $.store.get('index')) ?? 0)
@@ -56,6 +57,9 @@ export const register: Register = (on, options) => {
       name: 'azkar-arabic',
       description: 'Choose again how While You Wait shows Arabic in this terminal',
     })
+    if (always) {
+      timer ??= $.clock.every(SECONDS_PER_ZIKR * 1000, () => void advance($))
+    }
 
     return next(e)
   })
@@ -72,16 +76,17 @@ export const register: Register = (on, options) => {
 
   on('turn.start', async ($, e, next) => {
     // Subagents' turns start and end inside the main turn; only the main turn counts as waiting.
-    if (e.agentId === undefined && timer === undefined) {
+    if (e.agentId === undefined && (timer === undefined || always)) {
+      // A new wait always starts on a fresh zikr.
       await advance($)
-      timer = $.clock.every(SECONDS_PER_ZIKR * 1000, () => void advance($))
+      timer ??= $.clock.every(SECONDS_PER_ZIKR * 1000, () => void advance($))
     }
 
     return next(e)
   })
 
   on('turn.complete', ($, e, next) => {
-    if (e.agentId === undefined) {
+    if (e.agentId === undefined && !always) {
       timer?.cancel()
       timer = undefined
     }
@@ -91,7 +96,7 @@ export const register: Register = (on, options) => {
 
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
     const isAsking = await read($, asking)
-    if ((!e.props.isWorking && !isAsking) || e.props.hasSurvey) {
+    if ((!e.props.isWorking && !isAsking && !always) || e.props.hasSurvey) {
       return next(e)
     }
 

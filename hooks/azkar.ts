@@ -42,4 +42,43 @@ export const AZKAR: Zikr[] = [
     en: 'Our Lord, give us good in this world and good in the Hereafter, and protect us from the Fire',
     tr: 'Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina adhaban-nar',
   },
+  { ar: 'لَا إِلَٰهَ إِلَّا اللهُ مُحَمَّدٌ رَسُولُ اللهِ', en: 'There is no god but Allah; Muhammad is the Messenger of Allah', tr: 'La ilaha illallah, Muhammadur-rasulullah' },
+  { ar: 'حَسْبُنَا اللهُ وَنِعْمَ الْوَكِيلُ', en: 'Allah is sufficient for us, and He is the best Disposer of affairs', tr: "Hasbunallahu wa ni'mal-wakil" },
+  { ar: 'رَبِّ زِدْنِي عِلْمًا', en: 'My Lord, increase me in knowledge', tr: 'Rabbi zidni ilma' },
+  {
+    ar: 'رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي',
+    en: 'My Lord, expand my chest for me and ease my task for me',
+    tr: 'Rabbishrah li sadri wa yassir li amri',
+  },
+  { ar: 'يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ', en: 'O Ever-Living, O Sustainer of all, by Your mercy I seek help', tr: 'Ya Hayyu ya Qayyum, bi-rahmatika astaghith' },
+  {
+    ar: 'يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ',
+    en: 'O Turner of hearts, keep my heart firm upon Your religion',
+    tr: 'Ya muqallibal-qulub, thabbit qalbi ala dinik',
+  },
+  {
+    ar: 'رَضِيتُ بِاللهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا',
+    en: 'I am pleased with Allah as my Lord, Islam as my religion, and Muhammad as my Prophet',
+    tr: 'Raditu billahi rabban, wa bil-Islami dinan, wa bi-Muhammadin nabiyya',
+  },
+  {
+    ar: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
+    en: 'O Allah, You are Pardoning and love to pardon, so pardon me',
+    tr: "Allahumma innaka afuwwun tuhibbul-afwa fa'fu anni",
+  },
+  {
+    ar: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ',
+    en: 'O Allah, help me to remember You, to thank You, and to worship You well',
+    tr: "Allahumma a'inni ala dhikrika wa shukrika wa husni ibadatik",
+  },
+  {
+    ar: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا',
+    en: 'O Allah, I ask You for beneficial knowledge, good provision, and deeds that are accepted',
+    tr: "Allahumma inni as'aluka ilman nafi'an, wa rizqan tayyiban, wa amalan mutaqabbala",
+  },
+  {
+    ar: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ',
+    en: 'O Allah, I ask You for Paradise and seek refuge in You from the Fire',
+    tr: "Allahumma inni as'alukal-jannah, wa a'udhu bika minan-nar",
+  },
 ]
