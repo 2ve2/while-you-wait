@@ -131,3 +131,24 @@ test('with Show azkar set to always, the zikr changes while Claude is idle', { o
   expect(await zikrText(ui)).toContain(stripHarakat(AZKAR[1]!.ar))
   await ui.unmount()
 })
+
+test('Seconds per zikr sets how long each zikr stays while Claude works', { options: { seconds_per_zikr: '30' } }, async ($, on) => {
+  const clock = mock.clock(on)
+  mock.store(on)
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+  on('command.register', () => ({ value: { command: 'azkar-arabic' } }))
+  on('turn.start', (_, e) => ({ turnId: e.turnId }))
+  await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
+  await $.turn.start({ text: 'hi', turnId: 't1' })
+
+  // The default 10 seconds pass and the zikr the wait started on is still showing.
+  await clock.advance(10_000)
+  const early = await $.ui.mount({ ...band(true), surface: 'desktop' })
+  expect(await zikrText(early)).toContain(AZKAR[1]!.ar)
+  await early.unmount()
+
+  await clock.advance(20_000)
+  const later = await $.ui.mount({ ...band(true), surface: 'desktop' })
+  expect(await zikrText(later)).toContain(AZKAR[2]!.ar)
+  await later.unmount()
+})

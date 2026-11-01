@@ -12,12 +12,25 @@
     "show_azkar": {
       "type": "string",
       "title": "Show azkar",
-      "description": "while-working: only while Claude is working. always: above the prompt all the time, changing every 10 seconds.",
+      "description": "while-working: only while Claude is working. always: above the prompt all the time, changing at the pace set in Seconds per zikr.",
       "options": [
         "while-working",
         "always"
       ],
       "default": "while-working"
+    },
+    "seconds_per_zikr": {
+      "type": "string",
+      "title": "Seconds per zikr",
+      "description": "How long each zikr stays before the next one shows.",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "30",
+        "60"
+      ],
+      "default": "10"
     },
     "terminal_harakat": {
       "type": "string",
