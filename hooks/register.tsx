@@ -5,7 +5,8 @@ import type { Display } from '../types'
 import { forTerminal, stripHarakat } from './arabic'
 import { AZKAR } from './azkar'
 
-const SECONDS_PER_ZIKR = 10
+// How long each zikr stays when Seconds per zikr in /config holds no usable value.
+const DEFAULT_SECONDS_PER_ZIKR = 10
 const SAMPLE = 'سبحان الله وبحمده'
 
 // Terminals checked by eye to lay out Arabic themselves. Any other terminal asks once which display reads right.
@@ -47,6 +48,8 @@ async function choose($: EngineInterface, display: Display) {
 export const register: Register = (on, options) => {
   let timer: Timer | undefined
   const always = options.show_azkar === 'always'
+  const seconds = Number(options.seconds_per_zikr)
+  const millisPerZikr = (Number.isFinite(seconds) && seconds > 0 ? seconds : DEFAULT_SECONDS_PER_ZIKR) * 1000
 
   on('session.start', async ($, e, next) => {
     const saved = Number((await $.store.get('index')) ?? 0)
@@ -58,7 +61,7 @@ export const register: Register = (on, options) => {
       description: 'Choose again how While You Wait shows Arabic in this terminal',
     })
     if (always) {
-      timer ??= $.clock.every(SECONDS_PER_ZIKR * 1000, () => void advance($))
+      timer ??= $.clock.every(millisPerZikr, () => void advance($))
     }
 
     return next(e)
@@ -79,7 +82,7 @@ export const register: Register = (on, options) => {
     if (e.agentId === undefined && (timer === undefined || always)) {
       // A new wait always starts on a fresh zikr.
       await advance($)
-      timer ??= $.clock.every(SECONDS_PER_ZIKR * 1000, () => void advance($))
+      timer ??= $.clock.every(millisPerZikr, () => void advance($))
     }
 
     return next(e)

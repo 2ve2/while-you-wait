@@ -2,7 +2,7 @@
 
 Turn the time you spend waiting on Claude Code into dhikr.
 
-While Claude is working, a zikr appears above the prompt, in Arabic with its English meaning, and a new one shows every 10 seconds so you can repeat each one as it passes. When Claude finishes, it disappears. The next time you wait, it continues from where you left off, even in a new session.
+While Claude is working, a zikr appears above the prompt, in Arabic with its English meaning, and a new one shows every 10 seconds (or the pace you set) so you can repeat each one as it passes. When Claude finishes, it disappears. The next time you wait, it continues from where you left off, even in a new session.
 
 ![While You Wait showing a new zikr above the Claude Code prompt every 10 seconds while Claude works](while-you-wait.gif)
 
@@ -28,11 +28,15 @@ In the desktop app, where `/plugin` does not run: click + next to the prompt box
 
 ## Show azkar all the time
 
-By default the band shows only while Claude is working. To keep it above the prompt all the time, changing every 10 seconds, run `/config` and set **Show azkar** to `always`. Collapse it any time with the `[-]` at its right edge.
+By default the band shows only while Claude is working. To keep it above the prompt all the time, run `/config` and set **Show azkar** to `always`. Collapse it any time with the `[-]` at its right edge.
+
+## Change how long each zikr stays
+
+Each zikr stays 10 seconds before the next one shows. To give yourself more or less time, run `/config` and set **Seconds per zikr** to `5`, `10`, `15`, `30` or `60`.
 
 ## Change the adhkar
 
-The list is in `hooks/azkar.ts`, one `{ ar, en, tr }` entry per zikr (Arabic, meaning, and Latin letters). Add, remove, or reorder entries, or translate the `en` lines into your own language. To change how long each zikr stays, edit `SECONDS_PER_ZIKR` in `hooks/register.tsx`.
+The list is in `hooks/azkar.ts`, one `{ ar, en, tr }` entry per zikr (Arabic, meaning, and Latin letters). Add, remove, or reorder entries, or translate the `en` lines into your own language.
 
 ## Arabic in your terminal
 
